@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>drag</title>
+<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/Qgis2threejs.css">
+
+<!-- Custom Fonts -->
+<!-- <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,800&subset=cyrillic,latin' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+<div id="viewport">
+    <div id="view"></div>
+  </div>
+
+<div class="test">
+  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+    <h1>Свидовець</h1>
+    <p class="subtitle"> Анатомія Карпат </p>
+    <p class="intro"> Третій за висотою хребет у Карпатах — популярний об’єкт пішохідного та велотуризму. Що вам більше подобається — високогірні озера, водоспади чи безкраї краєвиди на гори? На Свидовці є все! </p>
+    <div class="text">
+      <p id="first">З півдня до гори прилягає сідловина, якою можна пройти до гори Близниці (1883 м) — найвищої вершини Свидівецького масиву. На північний схід від Котла тягнеться пологий хребет — полонина Менчул.</p>
+    </div>
+    <div class="text">
+      <p id="second">З півдня до гори прилягає сідловина, якою можна пройти до гори Близниці (1883 м) — найвищої вершини Свидівецького масиву. На північний схід від Котла тягнеться пологий хребет — полонина Менчул.</p>
+    </div>
+    <div class="text">
+      <p id="third">З півдня до гори прилягає сідловина, якою можна пройти до гори Близниці (1883 м) — найвищої вершини Свидівецького масиву. На північний схід від Котла тягнеться пологий хребет — полонина Менчул.</p>
+    </div>
+    <div class="text">
+      <img class="img-responsive" src="img/deer.png">
+      <p id="fourth">З півдня до гори прилягає сідловина, якою можна пройти до гори Близниці (1883 м) — найвищої вершини Свидівецького масиву. На північний схід від Котла тягнеться пологий хребет — полонина Менчул.</p>
+    </div>
+    <div class="text">
+      <p id="fifth">З півдня до гори прилягає сідловина, якою можна пройти до гори Близниці (1883 м) — найвищої вершини Свидівецького масиву. На північний схід від Котла тягнеться пологий хребет — полонина Менчул.</p>
+    </div>
+  </div>
+</div>
+<div id="webgl"></div>
+
+
+
+<!-- footer -->
+<!-- <div id="footer"><div id="infobtn">i</div></div> -->
+
+<script src="js/threejs/three.min.js"></script>
+<script src="js/Qgis2threejs.js"></script>
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/threejs/OrbitControls.js"></script>
+<script src="js/Tween.js"></script>
+<script src="js/noframework.waypoints.min.js"></script>
+<script src="js/clouds.js"></script>
+
+
+
+<script src="./proj4js/proj4.js"></script>
+<script src="js/drag.js"></script>
+
+<script id="vs" type="x-shader/x-vertex">
+  varying vec2 vUv;
+  void main() {
+    vUv = uv;
+    gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+  }
+</script>
+<script id="fs" type="x-shader/x-fragment">
+  uniform sampler2D map;
+  uniform vec3 fogColor;
+  uniform float fogNear;
+  uniform float fogFar;
+  varying vec2 vUv;
+  void main() {
+    float depth = gl_FragCoord.z / gl_FragCoord.w;
+    float fogFactor = smoothstep( fogNear, fogFar, depth );
+    gl_FragColor = texture2D( map, vUv );
+    gl_FragColor.w *= pow( gl_FragCoord.z, 20.0 );
+    gl_FragColor = mix( gl_FragColor, vec4( fogColor, gl_FragColor.w ), fogFactor );
+  }
+</script>
+
+<script>
+
+var option = Q3D.Options;
+var container = document.getElementById("webgl");
+var app = Q3D.application;
+app.init(container);
+
+// load the project
+app.loadProject(project);
+
+
+app.addEventListeners();
+app.start();
+
+
+function animate(newCords, speed) {
+  var initialCamera = app.camera.position
+  var position = {x : initialCamera.x, y: initialCamera.y, z:initialCamera.z};
+  var target = newCords
+  var tween = new TWEEN.Tween(position).to(target, speed);
+  tween.onUpdate(function(){
+        app.camera.position.x = position.x;
+        app.camera.position.y = position.y;
+        app.camera.position.z = position.z;
+        });
+  tween.easing(TWEEN.Easing.Quadratic.Out)
+  tween.start();
+}
+
+var waypoint = new Waypoint({
+element: document.getElementById('second'),
+handler: function(direction) {
+  $('#viewport').hide();
+  var newCords = {x: 80, y: -100, z: 60}
+  animate(newCords, 4000);
+},
+offset: "90%"
+});
+
+var waypoint2 = new Waypoint({
+element: document.getElementById('third'),
+handler: function(direction) {
+  var newCords = {x: 70, y: -50, z: 70}
+  animate(newCords, 3000);
+},
+offset: "90%"
+});
+
+var waypoint2 = new Waypoint({
+element: document.getElementById('fourth'),
+handler: function(direction) {
+  var newCords = {x: 10, y: 80, z: 70}
+  animate(newCords, 3000);
+},
+offset: "90%"
+});
+
+
+var waypoint3 = new Waypoint({
+element: document.getElementById('fifth'),
+handler: function(direction) {
+  var newCords = {x: 120, y: -10, z: 40}
+  animate(newCords, 3000);
+},
+offset: "90%"
+});
+</script>
+</body>
+</html>
