@@ -43,7 +43,7 @@ var Clouds = {
     View.elm.appendChild(cloud.elm);
     this.list.push(cloud);
 
-    // 最大個数を超えたら一番古い雲を消す
+
     if(this.list.length > this.maxCount){
       this.removeFirstCloud();
     }
@@ -119,7 +119,6 @@ Cloud.prototype = {
   }
 };
 
-// 雲一つにつき画像レイヤーを数枚
 var CloudLayer = function(){
   this.create.apply(this, arguments);
   return this;
@@ -155,7 +154,7 @@ CloudLayer.prototype = {
       translateX : this.pos.x + 'px',
       translateY : this.pos.y + 'px',
       translateZ : this.pos.z + 'px',
-      rotateY : -1 * View.rotateY + 'deg',// Viewに対して垂直を保つ
+      rotateY : -1 * View.rotateY + 'deg',
       rotateX : -1 * View.rotateX + 'deg',
       rotateZ : this.rotate + 'deg',
       scale : this.scale
@@ -163,16 +162,16 @@ CloudLayer.prototype = {
   }
 };
 
-// requestAnimationFrameを一か所に集約
+
 function update(){
   for(var i=0; i < Clouds.list.length; i++){
     var cloud = Clouds.list[i];
 
-    // x方向に移動
+
     var x = -0.3 - Math.random() * 0.1;
     cloud.move(x, 0, 0);
 
-    // layerの位置などを更新
+
     for(var j=0; j < cloud.layers.length; j++){
       var layer = cloud.layers[j];
       layer.update();
@@ -181,24 +180,10 @@ function update(){
   requestAnimationFrame(update);
 }
 
-// events
-// window.addEventListener('mousewheel', function(e){
-//   var z = -1 * e.wheelDelta / 8;
-//   View.zoom(z);
-// });
-// window.addEventListener('mousemove', function(e){
-//   var x = -(0.5 - (e.clientX / window.innerWidth)) * 180;
-//   var y = (0.5 - (e.clientY / window.innerHeight)) * 180;
-//   View.rotate(x, y);
-// });
-// window.addEventListener('click', function(e){
-//   Clouds.addCloud();
-// });
 
-// 数秒おきに雲を追加
 window.setInterval(function(){
   Clouds.addCloud();
-}, 5000);
+}, 7000);
 
 Clouds.addCloud();
 

@@ -1,0 +1,54 @@
+/* Loading styles */
+.project {  
+  opacity: 0; /*  we hide main container which wraps the project in order to display the animation */
+}
+
+.loader {
+  font-family: Open Sans, sans-serif;
+  font-weight: bold;
+  color: #ccc;
+  font-size: 2.5em;
+  height: 2.5em;
+  display: block;
+  margin-top:20%;
+  margin-right: auto;
+  margin-left: auto;
+  width: 330px;
+}
+
+.loader span {
+  display: inline-block;
+  transition: transform 100ms;
+}
+
+.loader .done {
+  color: #3A3F4A;
+}
+
+.overlay {
+  background-size: 1000px 2px;
+  bottom: 0;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -100000;
+}
+
+/* ======== Media Query ======== */
+@media only screen and (max-width: 1024px) and (orientation: landscape) {
+ .loader {margin-top:40%; } 
+}
+
+@media only screen and (max-width: 1024px) and (orientation: portrait) {
+ .loader {margin-top:60%; } 
+}
+
+@media only screen and (max-width: 601px) and (orientation: landscape){
+ .loader {font-size: 1.5em; margin-top:50%; width:200px;} 
+}
+
+@media only screen and (max-width: 601px) and (orientation: portrait) {
+ .loader {font-size: 1.5em; margin-top:70%; width:200px;} 
+}

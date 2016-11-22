@@ -2,13 +2,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>drag</title>
+<title>Свидовець</title>
 <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="css/Qgis2threejs.css">
+<link rel="stylesheet" href="css/texty_loading.css">
+<link rel="stylesheet" type="text/css" href="css/application.css">
 
 <!-- Custom Fonts -->
-<!-- <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,800&subset=cyrillic,latin' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=PT+Sans&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
@@ -16,15 +17,35 @@
 
 </head>
 <body>
+
+<div class="loader">TEXTY.ORG.UA</div>
+<div class="overlay"></div>
+
+
+<section class= "project">
+ <!-- Fixed navbar -->
+<div class="row logo-buttons" style="width:100%;">
+    <div class="col-lg-2 col-md-2 col-sm-2  col-xs-4">
+        <a href="http://texty.org.ua"><img class="img-responsive logo" src="img/logo.png"></a>
+    </div>
+    <div class="col-lg-1 col-lg-offset-9 col-md-1 col-md-offset-9 col-sm-2 col-sm-offset-8 col-xs-2 col-xs-offset-6">
+        <div class="social-icons">
+            <a href="https://twitter.com/intent/tweet?text=http://texty.org.ua/d/declarations-summary/" class="share-btn"><i class="fa fa-twitter fa-fw fa-2x social-tw"></i></a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://texty.org.ua/d/declarations-summary/" class="share-btn"><i class="fa fa-facebook fa-fw fa-2x social-fb"></i></a>
+        </div>
+    </div>
+</div>
+
 <div id="viewport">
     <div id="view"></div>
-  </div>
+</div>
 
-<div class="test">
+<div class="main-container">
   <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
     <h1>Свидовець</h1>
-    <p class="subtitle"> Анатомія Карпат </p>
+    <h2> Анатомія Карпат </h2>
     <p class="intro"> Третій за висотою хребет у Карпатах — популярний об’єкт пішохідного та велотуризму. Що вам більше подобається — високогірні озера, водоспади чи безкраї краєвиди на гори? На Свидовці є все! </p>
+    <div class="credits" >Над проектом працювали: <span>Ярина Михайлишин, Павло Солодько </span> </div>
     <div class="text">
       <p id="first">З півдня до гори прилягає сідловина, якою можна пройти до гори Близниці (1883 м) — найвищої вершини Свидівецького масиву. На північний схід від Котла тягнеться пологий хребет — полонина Менчул.</p>
     </div>
@@ -42,17 +63,22 @@
       <p id="fifth">З півдня до гори прилягає сідловина, якою можна пройти до гори Близниці (1883 м) — найвищої вершини Свидівецького масиву. На північний схід від Котла тягнеться пологий хребет — полонина Менчул.</p>
     </div>
   </div>
+  <div class="col-lg-2 col-lg-offset-6 col-md-3 col-md-offset-3 col-sm-4 col-sm-offset-2 col-xs-4 col-xs-offset-2">
+    <img class="img-responsive" src="img/map_svydovec.png">
+  </div>
 </div>
+
 <div id="webgl"></div>
 
-
+</section>
 
 <!-- footer -->
 <!-- <div id="footer"><div id="infobtn">i</div></div> -->
-
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src='js/jquery.lettering.min.js'></script>
+<script src="js/texty_loading.js"></script>
 <script src="js/threejs/three.min.js"></script>
 <script src="js/Qgis2threejs.js"></script>
-<script src="js/jquery-2.1.4.min.js"></script>
 <script src="js/threejs/OrbitControls.js"></script>
 <script src="js/Tween.js"></script>
 <script src="js/noframework.waypoints.min.js"></script>
@@ -70,6 +96,7 @@
     gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
   }
 </script>
+
 <script id="fs" type="x-shader/x-fragment">
   uniform sampler2D map;
   uniform vec3 fogColor;
@@ -86,6 +113,14 @@
 </script>
 
 <script>
+
+// Animated Logo
+$( window ).scroll(function() {
+    $(".logo").fadeOut( "slow" );
+    if ($(window).scrollTop() == 0) {
+        $(".logo").css('display', 'block');
+    }
+});
 
 var option = Q3D.Options;
 var container = document.getElementById("webgl");
@@ -114,7 +149,16 @@ function animate(newCords, speed) {
   tween.start();
 }
 
-var waypoint = new Waypoint({
+// var waypoint = new Waypoint({
+// element: document.getElementById('first'),
+// handler: function(direction) {
+//   var newCords = {x: -0.000012818630595180062, y: -50, z: 135.47497887541743}
+//   animate(newCords, 4000);
+// },
+// offset: "90%"
+// });
+
+var waypoint1 = new Waypoint({
 element: document.getElementById('second'),
 handler: function(direction) {
   $('#viewport').hide();

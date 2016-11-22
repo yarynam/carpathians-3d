@@ -1,0 +1,43 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-family:'Open Sans', sans-serif;
+    font-size: 100%;
+    color: $main-text;
+    width: 100%;
+    margin: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    &:link {
+        text-decoration: none;
+    }
+    &:hover {
+        color: #FAA61A;
+    }
+}
+
+
+h1 {
+  @include text(4em, 1em, 900, #ffffff);
+}
+
+h2 {
+  @include text(2em, 1em, bold, #ffffff);
+}
+
+h3 { 
+  @include text(1.8em, 2.2em, normal);
+}
+
+p {
+    @include text(1.6em, 1.5em, normal, #ffffff);
+    margin-top:5px;
+    margin-bottom: 5px;
+
+}
