@@ -3,7 +3,7 @@ before = (new Date()).getTime();
 function Ticker( elem ) {
 	elem.lettering();
 	this.done = false;
-	this.cycleCount = 3;
+	this.cycleCount = 1;
 	this.cycleCurrent = 0;
 	this.chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()-_=+{}|[]\\;\':"<>?,./`~'.split('');
 	this.charsCount = this.chars.length;
@@ -65,7 +65,7 @@ Ticker.prototype.loop = function() {
 	} else {
 		setTimeout( function() {
 			self.reset();
-		},7000 );
+		},5000 );
 	}
 };
 
@@ -84,6 +84,6 @@ window.onload = function onLoad() {
  setTimeout(function(){
     $(".loader, .overlay").remove();
     $('.project').css('opacity', 1);
-  }, sec + 1000); // plus extra 1 sec just in case
+  }, sec);
 };
 

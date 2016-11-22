@@ -173,7 +173,8 @@ body {
   font-size: 1.2em;
   line-height: 1.5em;
   font-weight: 300;
-  color: #ffffff; }
+  color: #ffffff;
+  margin-bottom: 3em; }
   .credits span {
     font-weight: bold; }
   .credits.date {
@@ -183,7 +184,8 @@ body {
 
 p.expense-title {
   font-size: 1.5em;
-  line-height: 1.5em; }
+  line-height: 1.5em;
+  margin-left: 5px; }
 p span {
   background: rgba(242, 239, 153, 0.5);
   padding: 1px; }
