@@ -65,7 +65,7 @@ Ticker.prototype.loop = function() {
 	} else {
 		setTimeout( function() {
 			self.reset();
-		},700 );
+		},7000 );
 	}
 };
 

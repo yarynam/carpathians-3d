@@ -62,6 +62,10 @@
     <div class="text">
       <p id="fifth">З півдня до гори прилягає сідловина, якою можна пройти до гори Близниці (1883 м) — найвищої вершини Свидівецького масиву. На північний схід від Котла тягнеться пологий хребет — полонина Менчул.</p>
     </div>
+     <div class="text">
+      <p id="sixth">З півдня до гори прилягає сідловина, якою можна пройти до гори Близниці (1883 м) — найвищої вершини Свидівецького масиву. На північний схід від Котла тягнеться пологий хребет — полонина Менчул.</p>
+    </div>
+    <div class="credits" >Для створення моделі використовувались супутникові фото Sentinel-2 за 31 серпня 2015 року. </div>
   </div>
   <div class="col-lg-2 col-lg-offset-6 col-md-3 col-md-offset-3 col-sm-4 col-sm-offset-2 col-xs-4 col-xs-offset-2">
     <img class="img-responsive" src="img/map_svydovec.png">
@@ -162,6 +166,7 @@ var waypoint1 = new Waypoint({
 element: document.getElementById('second'),
 handler: function(direction) {
   $('#viewport').hide();
+  console.log("one")
   var newCords = {x: 80, y: -100, z: 60}
   animate(newCords, 4000);
 },
@@ -171,6 +176,7 @@ offset: "90%"
 var waypoint2 = new Waypoint({
 element: document.getElementById('third'),
 handler: function(direction) {
+  console.log("two")
   var newCords = {x: 70, y: -50, z: 70}
   animate(newCords, 3000);
 },
@@ -180,6 +186,7 @@ offset: "90%"
 var waypoint2 = new Waypoint({
 element: document.getElementById('fourth'),
 handler: function(direction) {
+  console.log("three")
   var newCords = {x: 10, y: 80, z: 70}
   animate(newCords, 3000);
 },
@@ -190,6 +197,7 @@ offset: "90%"
 var waypoint3 = new Waypoint({
 element: document.getElementById('fifth'),
 handler: function(direction) {
+  console.log("four")
   var newCords = {x: 120, y: -10, z: 40}
   animate(newCords, 3000);
 },
