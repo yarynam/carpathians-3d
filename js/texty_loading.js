@@ -84,6 +84,6 @@ window.onload = function onLoad() {
  setTimeout(function(){
     $(".loader, .overlay").remove();
     $('.project').css('opacity', 1);
-  }, sec + 3000); // plus extra 3 sec just in case
+  }, sec + 1000); // plus extra 1 sec just in case
 };
 
