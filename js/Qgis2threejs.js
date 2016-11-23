@@ -3,7 +3,8 @@
 // Qgis2threejs.js
 // (C) 2014 Minoru Akagi | MIT License
 // https://github.com/minorua/Qgis2threejs
-// var cloudMesh, cloudGeometry, cloudMaterial;
+
+var mesh;
 
 var Q3D = {VERSION: "1.4.2"};
 Q3D.Options = {
@@ -2016,11 +2017,16 @@ Q3D.PolygonLayer.prototype.build = function (parent) {
       else zFunc = function (x, y) { return z0 + f.h; };
 
       var geom = Q3D.Utils.createOverlayGeometry(f.triangles, polygons, zFunc);
+     
 
       // set UVs
       if (materials[f.m].i !== undefined) Q3D.Utils.setGeometryUVs(geom, project.width, project.height);
 
       var mesh = new THREE.Mesh(geom, materials[f.m].m);
+      mesh.name = "polygons";
+      mesh.visible = false;
+     
+      
 
       if (f.mb === undefined && f.ms === undefined) return mesh;
 
@@ -2039,11 +2045,11 @@ Q3D.PolygonLayer.prototype.build = function (parent) {
             vertices = Q3D.Utils.arrayToVec3Array(polygon[j], zFunc);
           }
 
-          if (f.mb) {
-            geom = new THREE.Geometry();
-            geom.vertices = vertices;
-            mesh.add(new THREE.Line(geom, materials[f.mb].m));
-          }
+          // if (f.mb) {
+          //   geom = new THREE.Geometry();
+          //   geom.vertices = vertices;
+          //   mesh.add(new THREE.Line(geom, materials[f.mb].m));
+          // }
 
           if (f.ms) {
             geom = Q3D.Utils.createWallGeometry(vertices, bzFunc);

@@ -41,7 +41,7 @@
 </div>
 
 <div class="main-container">
-  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-8">
     <h1>Свидовець</h1>
     <h2> Анатомія Карпат </h2>
     <p class="intro"> Третій за висотою хребет у Карпатах — популярний об’єкт пішохідного та велотуризму. Що вам більше подобається — високогірні озера, водоспади чи безкраї краєвиди на гори? На Свидовці є все! </p>
@@ -67,8 +67,8 @@
     </div>
     <div class="credits" >Для створення моделі використовувались супутникові фото Sentinel-2 за 31 серпня 2015 року. </div>
   </div>
-  <div class="col-lg-2 col-lg-offset-6 col-md-3 col-md-offset-3 col-sm-4 col-sm-offset-2 col-xs-4 col-xs-offset-2">
-    <img class="img-responsive" src="img/map_svydovec.png">
+  <div class="col-lg-2 col-lg-offset-6 col-md-3 col-md-offset-3 col-sm-4 col-sm-offset-2 col-xs-4">
+    <img class="map-locator img-responsive" src="img/map_svydovec.png">
   </div>
 </div>
 
@@ -153,20 +153,23 @@ function animate(newCords, speed) {
   tween.start();
 }
 
-// var waypoint = new Waypoint({
-// element: document.getElementById('first'),
-// handler: function(direction) {
-//   var newCords = {x: -0.000012818630595180062, y: -50, z: 135.47497887541743}
-//   animate(newCords, 4000);
-// },
-// offset: "90%"
-// });
+function highlight (id, visibility) {
+  var objects =[]
+  app.scene.traverse ( function(child) {
+    if (child instanceof THREE.Mesh && child.userData['layerId'] == id) {
+      objects.push(child);
+      for ( var i = 0; i < objects.length; i ++ ) {
+        objects[i].visible = visibility;
+        };
+      }
+  });
+}
 
 var waypoint1 = new Waypoint({
 element: document.getElementById('second'),
 handler: function(direction) {
   $('#viewport').hide();
-  console.log("one")
+  highlight("1", false);
   var newCords = {x: 80, y: -100, z: 60}
   animate(newCords, 4000);
 },
@@ -176,9 +179,9 @@ offset: "90%"
 var waypoint2 = new Waypoint({
 element: document.getElementById('third'),
 handler: function(direction) {
-  console.log("two")
-  var newCords = {x: 70, y: -50, z: 70}
+  var newCords = {x: 10, y: -10, z: 110}
   animate(newCords, 3000);
+  highlight("1", true);
 },
 offset: "90%"
 });
@@ -186,7 +189,7 @@ offset: "90%"
 var waypoint2 = new Waypoint({
 element: document.getElementById('fourth'),
 handler: function(direction) {
-  console.log("three")
+  highlight("1", false);
   var newCords = {x: 10, y: 80, z: 70}
   animate(newCords, 3000);
 },
@@ -197,7 +200,6 @@ offset: "90%"
 var waypoint3 = new Waypoint({
 element: document.getElementById('fifth'),
 handler: function(direction) {
-  console.log("four")
   var newCords = {x: 120, y: -10, z: 40}
   animate(newCords, 3000);
 },

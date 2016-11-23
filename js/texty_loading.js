@@ -3,7 +3,7 @@ before = (new Date()).getTime();
 function Ticker( elem ) {
 	elem.lettering();
 	this.done = false;
-	this.cycleCount = 1;
+	this.cycleCount = 2;
 	this.cycleCurrent = 0;
 	this.chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()-_=+{}|[]\\;\':"<>?,./`~'.split('');
 	this.charsCount = this.chars.length;

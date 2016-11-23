@@ -7,13 +7,11 @@
   font-family: Open Sans, sans-serif;
   font-weight: bold;
   color: #ccc;
-  font-size: 2.5em;
+  font-size: 3.5em;
   height: 2.5em;
   display: block;
   margin-top:20%;
-  margin-right: auto;
-  margin-left: auto;
-  width: 330px;
+  text-align: center;
 }
 
 .loader span {
@@ -46,9 +44,9 @@
 }
 
 @media only screen and (max-width: 601px) and (orientation: landscape){
- .loader {font-size: 1.5em; margin-top:50%; width:200px;} 
+ .loader {font-size: 2.5em; margin-top:50%;} 
 }
 
 @media only screen and (max-width: 601px) and (orientation: portrait) {
- .loader {font-size: 1.5em; margin-top:70%; width:200px;} 
+ .loader {font-size: 2.5em; margin-top:70%;} 
 }
