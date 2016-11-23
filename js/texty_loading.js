@@ -3,7 +3,7 @@ before = (new Date()).getTime();
 function Ticker( elem ) {
 	elem.lettering();
 	this.done = false;
-	this.cycleCount = 2;
+	this.cycleCount = 5;
 	this.cycleCurrent = 0;
 	this.chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()-_=+{}|[]\\;\':"<>?,./`~'.split('');
 	this.charsCount = this.chars.length;
@@ -59,13 +59,15 @@ Ticker.prototype.loop = function() {
 	}
 
 	if( !this.done ) {
-		requestAnimationFrame( function() {
-			self.loop();
-		});
+		setTimeout( function() {
+			requestAnimationFrame( function() {
+				self.loop();
+			});
+	    },30 );
 	} else {
 		setTimeout( function() {
 			self.reset();
-		},5000 );
+		},3000 );
 	}
 };
 
