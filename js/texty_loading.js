@@ -63,7 +63,7 @@ Ticker.prototype.loop = function() {
 			requestAnimationFrame( function() {
 				self.loop();
 			});
-	    },30 );
+	    }, 70 );
 	} else {
 		setTimeout( function() {
 			self.reset();

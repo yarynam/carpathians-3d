@@ -7,7 +7,7 @@
   font-family: Open Sans, sans-serif;
   font-weight: bold;
   color: #ccc;
-  font-size: 3.5em;
+  font-size: 4em;
   height: 2.5em;
   display: block;
   margin-top:20%;
@@ -44,9 +44,9 @@
 }
 
 @media only screen and (max-width: 601px) and (orientation: landscape){
- .loader {font-size: 2.5em; margin-top:50%;} 
+ .loader {font-size: 3em; margin-top:50%;} 
 }
 
 @media only screen and (max-width: 601px) and (orientation: portrait) {
- .loader {font-size: 2.5em; margin-top:70%;} 
+ .loader {font-size: 3em; margin-top:70%;} 
 }
