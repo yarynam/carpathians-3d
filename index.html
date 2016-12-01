@@ -240,7 +240,7 @@ var waypoint = new Waypoint({
 element: document.getElementById('first'),
 handler: function(direction) {
   $('#viewport').hide();
-  var newCords = {x: 155, y: -10, z: 40}
+  var newCords = {x: 135, y: -10, z: 40}
   animate(newCords, 5000);
   highlight_line("3", true);
 },
@@ -253,7 +253,7 @@ element: document.getElementById('second'),
 handler: function(direction) {
   $('#viewport').hide();
   highlight_line("3", false);
-  var newCords = {x: 130, y: -5, z: 50}
+  var newCords = {x: 120, y: -5, z: 50}
   animate(newCords, 3000);
 },
 offset: "130%"
