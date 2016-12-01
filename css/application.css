@@ -35,11 +35,12 @@ h3 {
   font-weight: normal; }
 
 p {
-  font-size: 1.6em;
+  font-size: 1.4em;
   line-height: 1.5em;
-  font-weight: normal;
-  color: #ffffff;
+  font-weight: 300;
+  color: #000;
   margin-top: 5px;
+  margin-left: 10px;
   margin-bottom: 5px; }
 
 /* ======== HEADER ======== */
@@ -137,6 +138,7 @@ body {
 
 .text {
   padding: 5px;
+  background: rgba(255, 255, 255, 0.7);
   margin-left: 3%;
   margin-top: 150%;
   margin-bottom: 15em; }
