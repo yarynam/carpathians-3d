@@ -350,7 +350,7 @@ limitations:
 
   app.buildDefaultCamera = function () {
     app.camera = new THREE.PerspectiveCamera(45, app.width / app.height, 0.1, 1000);
-    app.camera.position.set(-0.000012818630595180062, -0.000137880391949778, 155.47497887541743);
+    app.camera.position.set(-0, -0.9, 155.47497887541743);
   };
 
   // app.currentViewUrl = function () {
@@ -711,7 +711,7 @@ limitations:
   //     app._canvasImageUrl = null;
   //   }
   // };
-  
+
   app.clouds = function() {
     cloudGeometry = new THREE.Geometry();
     var cloudTexture = THREE.ImageUtils.loadTexture( 'img/cloud2.png', null, app.render );
@@ -1948,6 +1948,7 @@ Q3D.LineLayer.prototype.build = function (parent) {
       var obj = createObject(f, f.lines[i]);
       obj.userData.layerId = this.index;
       obj.userData.featureId = fid;
+      obj.visible = false;
       this.addObject(obj);
       f.objs.push(obj);
     }
@@ -2017,7 +2018,7 @@ Q3D.PolygonLayer.prototype.build = function (parent) {
       else zFunc = function (x, y) { return z0 + f.h; };
 
       var geom = Q3D.Utils.createOverlayGeometry(f.triangles, polygons, zFunc);
-     
+
 
       // set UVs
       if (materials[f.m].i !== undefined) Q3D.Utils.setGeometryUVs(geom, project.width, project.height);
@@ -2025,8 +2026,8 @@ Q3D.PolygonLayer.prototype.build = function (parent) {
       var mesh = new THREE.Mesh(geom, materials[f.m].m);
       mesh.name = "polygons";
       mesh.visible = false;
-     
-      
+
+
 
       if (f.mb === undefined && f.ms === undefined) return mesh;
 
