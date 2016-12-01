@@ -36,7 +36,7 @@ h3 {
 }
 
 p {
-    @include text(1.4em, 1.5em, 300, #000);
+    @include text(1.4em, 1.5em, 300, #fff);
     margin-top:5px;
     margin-left:10px;
     margin-bottom: 5px;

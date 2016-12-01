@@ -34,12 +34,21 @@ body {
 
 .text {
   padding: 5px;
-  background: rgba(255,255,255, 0.7);
   margin-left: 3%;
   margin-top: 150%;
   margin-bottom: 15em;
 }
 
+.photo {
+    background: rgba(255,255,255, 0.7);
+    padding: 5px;
+    margin-right: 5%;
+}
+
+.caption {
+  color: #000;
+  font-style: italic;
+}
 
 #webgl {
   /* sky-like */
