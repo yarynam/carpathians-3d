@@ -5,6 +5,7 @@
 // https://github.com/minorua/Qgis2threejs
 
 var mesh;
+var hidden_labels = ["id5", "id7", "id8", "id9", "id10"];
 
 var Q3D = {VERSION: "1.4.2"};
 Q3D.Options = {
@@ -190,6 +191,7 @@ limitations:
 
     // root element for labels
     var e = document.createElement("div");
+    e.setAttribute("id", "all_labels");
     e.style.display = (app.labelVisibility) ? "block" : "none";
     app.container.appendChild(e);
     app.labelRootElement = e;
@@ -249,18 +251,22 @@ limitations:
       });
     }
 
+    // project.layers[2].visible = false;
+    // console.log(project.layers[2]);
+
     // build models
-    project.layers.forEach(function (layer) {
-      layer.initMaterials();
-      layer.build(app.scene);
+      project.layers.forEach(function (layer) {
+        layer.initMaterials();
+        layer.build(app.scene);
 
-      // build labels
-      if (layer.l) {
-        layer.buildLabels(app.labelConnectorGroup, app.labelRootElement);
-        app.labels = app.labels.concat(layer.labels);
-      }
-    });
+        // build labels
+        if (layer.l && layer.visible != false) {
+          layer.buildLabels(app.labelConnectorGroup, app.labelRootElement);
+          app.labels = app.labels.concat(layer.labels);
+        }
+      });
 
+     console.log(app.labels);
     if (app.labels.length) app.scene.add(app.labelConnectorGroup);
 
     // wireframe mode setting
@@ -378,20 +384,33 @@ limitations:
     if (app.running) requestAnimationFrame(app.animate);
     if (app.controls) app.controls.update();
     app.render();
-    // app.clouds();
   };
 
   app.render = function () {
     app.renderer.render(app.scene, app.camera);
-    app.updateLabelPosition();
     TWEEN.update();
-    // app.update
+    app.updateLabelPosition();
+
+    hidden_labels.forEach(function(h_label) {
+      hide_labels(h_label);
+    })
+    // document.getElementById("id1").style.display = "none";
     // var test = app.camera.position
     // var test2 = app.camera.lookAt
     // console.log(test.x, test.y, test.z);
     // console.log(test2.x, test2.y, test2.z);
 
   };
+
+
+  function hide_labels(id) {
+    app.labels.forEach(function (label) {
+      if (label.e.id == id ) {
+        label.obj.visible = false;
+        label.e.style.display = "none";
+      }
+    });
+  }
 
   // update label position
   app.updateLabelPosition = function () {
@@ -410,14 +429,15 @@ limitations:
     var idx_dist = [];
     for (var i = 0, l = app.labels.length; i < l; i++) {
       idx_dist.push([i, camera_pos.distanceTo(app.labels[i].pt)]);
+      app.labels[i].obj.visible = true;
     }
 
     // sort label indexes in descending order of distances
-    idx_dist.sort(function (a, b) {
-      if (a[1] < b[1]) return 1;
-      if (a[1] > b[1]) return -1;
-      return 0;
-    });
+    // idx_dist.sort(function (a, b) {
+    //   if (a[1] < b[1]) return 1;
+    //   if (a[1] > b[1]) return -1;
+    //   return 0;
+    // });
 
     var label, e, x, y, dist, fontSize;
     var minFontSize = Q3D.Options.label.minFontSize;
@@ -433,6 +453,7 @@ limitations:
 
         // set label position
         e.style.display = "block";
+        e.id = "id"+i;
         e.style.left = (x - (e.offsetWidth / 2)) + "px";
         e.style.top = (y - (e.offsetHeight / 2)) + "px";
         e.style.zIndex = i + 1;
@@ -2019,15 +2040,11 @@ Q3D.PolygonLayer.prototype.build = function (parent) {
 
       var geom = Q3D.Utils.createOverlayGeometry(f.triangles, polygons, zFunc);
 
-
       // set UVs
       if (materials[f.m].i !== undefined) Q3D.Utils.setGeometryUVs(geom, project.width, project.height);
 
       var mesh = new THREE.Mesh(geom, materials[f.m].m);
-      mesh.name = "polygons";
       mesh.visible = false;
-
-
 
       if (f.mb === undefined && f.ms === undefined) return mesh;
 
@@ -2046,11 +2063,11 @@ Q3D.PolygonLayer.prototype.build = function (parent) {
             vertices = Q3D.Utils.arrayToVec3Array(polygon[j], zFunc);
           }
 
-          // if (f.mb) {
-          //   geom = new THREE.Geometry();
-          //   geom.vertices = vertices;
-          //   mesh.add(new THREE.Line(geom, materials[f.mb].m));
-          // }
+          if (f.mb) {
+            geom = new THREE.Geometry();
+            geom.vertices = vertices;
+            mesh.add(new THREE.Line(geom, materials[f.mb].m));
+          }
 
           if (f.ms) {
             geom = Q3D.Utils.createWallGeometry(vertices, bzFunc);

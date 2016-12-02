@@ -28,7 +28,7 @@ h1 {
 }
 
 h2 {
-  @include text(2em, 1em, bold, #ffffff);
+  @include text(2em, 1.5em, bold, #ffffff);
 }
 
 h3 {
@@ -36,9 +36,8 @@ h3 {
 }
 
 p {
-    @include text(1.4em, 1.5em, 300, #fff);
+    @include text(1.5em, 1.7em, 300, #fff);
     margin-top:5px;
-    margin-left:10px;
     margin-bottom: 5px;
 
 }
