@@ -86,7 +86,7 @@
       <p id="seventh">На плато Близниці  ростуть надзвичайно рідкісні едельвейс і ломикамінь - теж є полониною. На жовто-зеленому килимі різнотрав’я то тут, то там помітні білі крапочки. Це пасуться отари овець… Стоп, які вівці, тут же заповідник!<p>
     </div>
     <div class="text">
-      <p id="eighth">Так, це справді територія заповiдника, однак місцеві мають право вести господарську діяльність. Вівці, корови, коні, їх тут випасали з покон віків. Сир, м’ясо, молоко.
+      <p id="eight">Так, це справді територія заповiдника, однак місцеві мають право вести господарську діяльність. Вівці, корови, коні, їх тут випасали з покон віків. Сир, м’ясо, молоко.
        А ще збір чорниць, пасовиська і ягідники, перемішані на полонині.</p>
     </div>
     <div class="text">
@@ -144,6 +144,20 @@
   <p id="fourteen">Характерний живописний пейзаж центральної частини Свидовця — льодовикові кари, тобто великі чашоподібні западини,
     видавлені льодовим масивом, який вкривав вершини Свидовецького і Чорногірського хребтів 10 тисяч років тому. На схилах і в долині карів — розсипи каміння,
     яке танучий льодовик забрав з поверхні гори. Часто на дні кару — льодовикове озеро, що живиться кількома джерелами на схилі. Загалом на Свидовці — більше десятка високогірних озер.</p>
+ </div>
+ <div class="text">
+   <img class="img-responsive" src="img/small_trees.png">
+   <p id="fifteen">Характерна смуга високогірних кущів-джунглів: гірська вільха або лелич, ялівець, альпійська сосна [жереп], яка відділяє пояс лісів від поясу альпійських лук.</p>
+ </div>
+ <div class="text">
+   <h2> Вирубка лісу </h2>
+   <p id="sixteen">Гора Темпа (1634 м). З цих країв бере початок промислова експлуатація лісів Українських Карпат. Її почали спеціально
+     запрошені за часів Австро-Угорщини німецькі фахівці. Вони й навчили місцевих рубати і сплавляти ліс, відновлювати вирубане.</p>
+ </div>
+ <div class="text">
+   <p id="seventeen">Промислова революція почалася з долини річки Тересва. 90% населення селища Усть-Чорна, яке тоді називалося Кеніґсфельд
+     («Королівське поле»), становили німецькі поселенці.
+</p>
  </div>
 
     <div class="credits" >Для створення моделі використовувались супутникові фото Sentinel-2 за 31 серпня 2015 року. </div>
@@ -267,6 +281,7 @@ handler: function(direction) {
   var newCords = {x: 135, y: -10, z: 40}
   animate(newCords, 5000);
   highlight_line("3", true);
+  highlighted_labels = ["id4"];
 },
 offset: "130%"
 });
@@ -288,6 +303,7 @@ element: document.getElementById('third'),
 handler: function(direction) {
   var newCords = {x: 130, y: 20, z: 45}
   animate(newCords, 3000);
+  highlighted_labels = ["id4"];
 },
 offset: "130%"
 });
@@ -298,6 +314,7 @@ element: document.getElementById('fourth'),
 handler: function(direction) {
   var newCords = {x: 140, y: -60, z: 65}
   animate(newCords, 3000);
+  highlighted_labels = ["id0"];
   hidden_labels = ["id7", "id8", "id9", "id10"];
 },
 offset: "130%"
@@ -309,6 +326,7 @@ handler: function(direction) {
   // var newCords = {x:  -10, y: -3, z: 130} //vyrubky
   var newCords = {x: 150, y: -30, z: 55}
   animate(newCords, 3000);
+  highlighted_labels = ["id9", "id10"];
   hidden_labels = ["id7", "id8"];
 },
 offset: "130%"
@@ -321,6 +339,7 @@ handler: function(direction) {
   var newCords = {x: 118, y: -5.6, z: 52}
   highlight("4", false);
   animate(newCords, 3000);
+  highlighted_labels = ["id7", "id8"];
   hidden_labels = ["id9", "id10"];
 },
 offset: "130%"
@@ -331,19 +350,20 @@ element: document.getElementById('seventh'),
 handler: function(direction) {
   var newCords = {x: 120, y: -98, z: 70}
   animate(newCords, 3000);
+  highlighted_labels = [];
   hidden_labels = ["id7", "id8", "id9", "id10"];
-  highlight("9", false);
+  highlight("12", false);
 },
 offset: "130%"
 });
 
 
 var waypoint8 = new Waypoint({
-element: document.getElementById('eighth'),
+element: document.getElementById('eight'),
 handler: function(direction) {
-  var newCords = {x: -10, y: -20, z: 160}
+  var newCords = {x: -5, y: -10, z: 150}
   animate(newCords, 3000);
-  highlight("9", true);
+  highlight("12", true);
   highlight("5", false);
 },
 offset: "130%"
@@ -355,7 +375,7 @@ element: document.getElementById('nine'),
 handler: function(direction) {
   var newCords = {x: 20, y: -70, z: 100}
   animate(newCords, 3000);
-  highlight("9", false);
+  highlight("12", false);
   highlight("5", true);
   highlight_line("6", false);
 },
@@ -391,7 +411,7 @@ handler: function(direction) {
   var newCords = {x: 79, y: 17, z: 55}
   animate(newCords, 3000);
   highlight("4", false);
-  highlight("10", false);
+  highlight("19", false);
   highlight("8", true);
 },
 offset: "130%"
@@ -403,7 +423,7 @@ handler: function(direction) {
   var newCords = {x: 110, y: -10, z: 60}
   animate(newCords, 3000);
   highlight("8", false);
-  highlight("10", true);
+  highlight("19", true);
 },
 offset: "130%"
 });
@@ -413,11 +433,48 @@ element: document.getElementById('fourteen'),
 handler: function(direction) {
   var newCords = {x: 85, y: 50, z: 60}
   animate(newCords, 3000);
-  highlight("10", false);
+  highlighted_labels = ["id6"];
+  highlight("19", false);
+  highlight("18", false);
 },
 offset: "130%"
 });
 
+var waypoint15 = new Waypoint({
+element: document.getElementById('fifteen'),
+handler: function(direction) {
+  // var newCords = {x: 35, y: 40, z: 60} //dohiaska
+  var newCords = {x: 65, y: 70, z: 50};
+  animate(newCords, 3000);
+  highlighted_labels = ["id6"];
+  highlight("18", true);
+},
+offset: "130%"
+});
+
+var waypoint15 = new Waypoint({
+element: document.getElementById('sixteen'),
+handler: function(direction) {
+  var newCords = {x: -95, y: 70, z: 50};
+  animate(newCords, 3000);
+  highlighted_labels = ["id5"];
+  highlight("18", false);
+  highlight_line("9", false);
+},
+offset: "130%"
+});
+
+
+var waypoint15 = new Waypoint({
+element: document.getElementById('seventeen'),
+handler: function(direction) {
+  var newCords = {x: -175, y: 70, z: 40};
+  animate(newCords, 3000);
+  highlighted_labels = ["id5"];
+  highlight_line("9", true);
+},
+offset: "130%"
+});
 // var waypoint5 = new Waypoint({
 // element: document.getElementById('fifth'),
 // handler: function(direction) {

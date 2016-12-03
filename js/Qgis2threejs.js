@@ -5,6 +5,7 @@
 // https://github.com/minorua/Qgis2threejs
 
 var mesh;
+var highlighted_labels = [];
 var hidden_labels = ["id5", "id7", "id8", "id9", "id10"];
 
 var Q3D = {VERSION: "1.4.2"};
@@ -266,7 +267,6 @@ limitations:
         }
       });
 
-     console.log(app.labels);
     if (app.labels.length) app.scene.add(app.labelConnectorGroup);
 
     // wireframe mode setting
@@ -390,18 +390,23 @@ limitations:
     app.renderer.render(app.scene, app.camera);
     TWEEN.update();
     app.updateLabelPosition();
-
+    highlighted_labels.forEach(function(label) {
+      highlighted_text(label);
+    })
     hidden_labels.forEach(function(h_label) {
       hide_labels(h_label);
     })
-    // document.getElementById("id1").style.display = "none";
-    // var test = app.camera.position
-    // var test2 = app.camera.lookAt
-    // console.log(test.x, test.y, test.z);
-    // console.log(test2.x, test2.y, test2.z);
 
   };
 
+  function highlighted_text(id) {
+    // label.e.className = "label";
+    app.labels.forEach(function (label) {
+      if (label.e.id == id ) {
+        label.e.className = "label highlighted-text";
+      }
+    });
+  }
 
   function hide_labels(id) {
     app.labels.forEach(function (label) {
@@ -444,6 +449,7 @@ limitations:
     for (var i = 0, l = idx_dist.length; i < l; i++) {
       label = app.labels[idx_dist[i][0]];
       e = label.e;
+
       if (c2l.subVectors(label.pt, camera_pos).dot(c2t) > 0) {
         // label is in front
         // calculate label position
@@ -454,6 +460,7 @@ limitations:
         // set label position
         e.style.display = "block";
         e.id = "id"+i;
+        e.className = "label";
         e.style.left = (x - (e.offsetWidth / 2)) + "px";
         e.style.top = (y - (e.offsetHeight / 2)) + "px";
         e.style.zIndex = i + 1;

@@ -39,10 +39,6 @@ body {
   margin-bottom: 15em;
 }
 
-.h_text {
-  font-size: 42px;
-  font-weight: bold;
-}
 
 .photo {
     background: rgba(255,255,255, 0.7);
@@ -69,6 +65,12 @@ body {
   padding: 5px;
   position: absolute;
   pointer-events: none;
+}
+
+.highlighted-text {
+  font-size: 11px;
+  background-color: rgba(247, 87, 87, 0.65);
+  letter-spacing: 1px;
 }
 
 .print-label {
