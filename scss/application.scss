@@ -40,10 +40,11 @@ body {
 }
 
 
-.photo {
-    background: rgba(255,255,255, 0.7);
-    padding: 5px;
-    margin-right: 5%;
+.photo-container {
+    background: rgba(255,255,255, 1);
+    padding: 15px;
+    padding-bottom: 30px;
+    margin-top: 50%;
 }
 
 .caption {
@@ -69,7 +70,8 @@ body {
 
 .highlighted-text {
   font-size: 11px;
-  background-color: rgba(247, 87, 87, 0.65);
+  font-weight: bold;
+  background-color: rgba(178, 156, 64, 0.7);
   letter-spacing: 1px;
 }
 
@@ -89,9 +91,9 @@ body {
 }
 
 .annotation {
-  float: right;
-  margin-right: 10%;
-  margin-bottom: 10px;
+  margin-top: 5px;
+  text-align: center;
+  color: #858585;
 }
 
 .credits {

@@ -72,6 +72,10 @@
       <p id="fifth">Північно-східні відроги хребта круто обриваються утворюють улогвини, або кулуари, як їх  називають геологи. Тут колись лежали -
         і дуже довго танули - величезні масиви льоду. Вони і видавили своєю вагою ці гірські впадини.  </p>
     </div>
+    <div class="photo-container">
+      <img class="img-responsive" src="img/kuluar.jpg">
+      <p class="annotation"><i>Кулуари на Близниці</i></p>
+    </div>
     <div class="text">
       <p id="sixth">В ясну погоду з Драгобрату видно живописні скелясті урвища над улогвинами - так звані Жандарми. На цих схилах небезпечно, особливо в негоду. Особливо взимку.
         В улогвинах сходять лавини, а снігові наддуви над обривами оманливо міцні.<p>
@@ -144,6 +148,10 @@
   <p id="fourteen">Характерний живописний пейзаж центральної частини Свидовця — льодовикові кари, тобто великі чашоподібні западини,
     видавлені льодовим масивом, який вкривав вершини Свидовецького і Чорногірського хребтів 10 тисяч років тому. На схилах і в долині карів — розсипи каміння,
     яке танучий льодовик забрав з поверхні гори. Часто на дні кару — льодовикове озеро, що живиться кількома джерелами на схилі. Загалом на Свидовці — більше десятка високогірних озер.</p>
+  <div class="photo-container">
+    <img class="img-responsive" src="img/vorozheska.jpg">
+    <p class="annotation"><i>Засмічена вирубка. Не прибрані відходи</i></p>
+  </div>
  </div>
  <div class="text">
    <img class="img-responsive" src="img/small_trees.png">
@@ -240,6 +248,10 @@
      самостійно виростає знову. Якщо гілки не прибрати, утвориться малинник, дерева крізь нього не проб’ються. Якщо рубати на великих
      площах, пагонам не вистачатиме води.
    </p>
+   <div class="photo-container">
+     <img class="img-responsive" src="img/vyrubka.jpg">
+     <p class="annotation"><i>Засмічена вирубка. Не прибрані відходи</i></p>
+   </div>
  </div>
  <div class="text">
    <p id="twenty-seven">Є в Карпатах і праліси. Це так звані автентичні ліси, не насаджені людиною, ті, які росли тут з правіків. Частина пралісів — це верхня букова смуга.
@@ -250,7 +262,7 @@
  <div class="text">
    <h2>Звірі і риба</h2>
    <img class="img-responsive" src="img/wild_animals.png">
-   <p id="twenty-seven">Тут водяться червонокнижні ведмеді, рисі, дикі коти, беркути, саламандри. А також олені, кабани, косулі, полози і ще багато кого.
+   <p>Тут водяться червонокнижні ведмеді, рисі, дикі коти, беркути, саламандри. А також олені, кабани, косулі, полози і ще багато кого.
    </p>
  </div>
  <div class="text">
@@ -397,7 +409,7 @@ handler: function(direction) {
   $('#viewport').hide();
   var newCords = {x: 135, y: -10, z: 40}
   animate(newCords, 5000);
-  highlight_line("3", true);
+  highlight_line("7", true);
   highlighted_labels = ["id4"];
 },
 offset: "130%"
@@ -408,7 +420,7 @@ var waypoint2 = new Waypoint({
 element: document.getElementById('second'),
 handler: function(direction) {
   $('#viewport').hide();
-  highlight_line("3", false);
+  highlight_line("7", false);
   var newCords = {x: 120, y: -5, z: 50}
   animate(newCords, 3000);
 },
@@ -440,7 +452,6 @@ offset: "130%"
 var waypoint4 = new Waypoint({
 element: document.getElementById('fifth'),
 handler: function(direction) {
-  // var newCords = {x:  -10, y: -3, z: 130} //vyrubky
   var newCords = {x: 150, y: -30, z: 55}
   animate(newCords, 3000);
   highlighted_labels = ["id9", "id10"];
@@ -454,7 +465,6 @@ var waypoint6 = new Waypoint({
 element: document.getElementById('sixth'),
 handler: function(direction) {
   var newCords = {x: 118, y: -5.6, z: 52}
-  highlight("4", false);
   animate(newCords, 3000);
   highlighted_labels = ["id7", "id8"];
   hidden_labels = ["id9", "id10"];
@@ -469,7 +479,7 @@ handler: function(direction) {
   animate(newCords, 3000);
   highlighted_labels = [];
   hidden_labels = ["id7", "id8", "id9", "id10"];
-  highlight("12", false);
+  highlight("8", false);
 },
 offset: "130%"
 });
@@ -480,8 +490,8 @@ element: document.getElementById('eight'),
 handler: function(direction) {
   var newCords = {x: -5, y: -10, z: 150}
   animate(newCords, 3000);
-  highlight("12", true);
-  highlight("5", false);
+  highlight("8", true);
+  highlight("16", false);
 },
 offset: "130%"
 });
@@ -492,9 +502,9 @@ element: document.getElementById('nine'),
 handler: function(direction) {
   var newCords = {x: 20, y: -70, z: 100}
   animate(newCords, 3000);
-  highlight("12", false);
-  highlight("5", true);
-  highlight_line("6", false);
+  highlight("8", false);
+  highlight("16", true);
+  highlight_line("4", false);
 },
 offset: "130%"
 });
@@ -504,9 +514,9 @@ element: document.getElementById('ten'),
 handler: function(direction) {
   var newCords = {x: -20, y: -30, z: 160}
   animate(newCords, 3000);
-  highlight_line("6", true);
-  highlight("5", false);
-  highlight("4", false);
+  highlight_line("4", true);
+  highlight("16", false);
+  highlight("12", false);
 },
 offset: "130%"
 });
@@ -516,9 +526,9 @@ element: document.getElementById('eleven'),
 handler: function(direction) {
   var newCords = {x: 110, y: 20, z: 50}
   animate(newCords, 3000);
-  highlight_line("6", false);
-  highlight("8", false);
-  highlight("4", true);
+  highlight_line("4", false);
+  highlight("19", false);
+  highlight("12", true);
 },
 offset: "130%"
 });
@@ -528,9 +538,9 @@ element: document.getElementById('twelve'),
 handler: function(direction) {
   var newCords = {x: 79, y: 17, z: 55}
   animate(newCords, 3000);
-  highlight("4", false);
-  highlight("19", false);
-  highlight("8", true);
+  highlight("12", false);
+  highlight("1", false);
+  highlight("19", true);
 },
 offset: "130%"
 });
@@ -541,8 +551,8 @@ handler: function(direction) {
   var newCords = {x: 110, y: -10, z: 60}
   animate(newCords, 3000);
   highlighted_labels = [];
-  highlight("8", false);
-  highlight("19", true);
+  highlight("19", false);
+  highlight("1", true);
 },
 offset: "130%"
 });
@@ -553,8 +563,8 @@ handler: function(direction) {
   var newCords = {x: 85, y: 50, z: 60}
   animate(newCords, 3000);
   highlighted_labels = ["id6"];
-  highlight("19", false);
-  highlight("18", false);
+  highlight("1", false);
+  highlight("2", false);
 },
 offset: "130%"
 });
@@ -565,7 +575,7 @@ handler: function(direction) {
   var newCords = {x: 65, y: 70, z: 50};
   animate(newCords, 3000);
   highlighted_labels = ["id6"];
-  highlight("18", true);
+  highlight("2", true);
 },
 offset: "130%"
 });
@@ -576,8 +586,8 @@ handler: function(direction) {
   var newCords = {x: -95, y: 70, z: 50};
   animate(newCords, 3000);
   highlighted_labels = ["id5"];
-  highlight("18", false);
-  highlight_line("9", false);
+  highlight("2", false);
+  highlight_line("3", false);
 },
 offset: "130%"
 });
@@ -589,7 +599,7 @@ handler: function(direction) {
   var newCords = {x: -175, y: 70, z: 40};
   animate(newCords, 3000);
   highlighted_labels = ["id5"];
-  highlight_line("9", true);
+  highlight_line("3", true);
 },
 offset: "130%"
 });
@@ -600,8 +610,8 @@ handler: function(direction) {
   var newCords = {x: -61, y: -90, z: 75};
   animate(newCords, 3000);
   highlighted_labels = [];
-  highlight_line("9", false);
-  highlight("17", false);
+  highlight_line("3", false);
+  highlight("10", false);
 },
 offset: "130%"
 });
@@ -612,8 +622,8 @@ element: document.getElementById('nineteen'),
 handler: function(direction) {
   var newCords = {x:3, y: -72, z: 120};
   animate(newCords, 3000);
-  highlight("17", true);
-  highlight("1", false);
+  highlight("10", true);
+  highlight("9", false);
 },
 offset: "130%"
 });
@@ -624,9 +634,8 @@ handler: function(direction) {
   //var newCords = {x: 35, y: 40, z: 60}  //dohiaska
   var newCords = {x:  1, y: -3, z: 130};
   animate(newCords, 3000);
-  highlight("17", false);
   highlight("10", false);
-  highlight("1", true);
+  highlight("9", true);
 },
 offset: "130%"
 });
@@ -636,7 +645,8 @@ element: document.getElementById('twenty-one'),
 handler: function(direction) {
   var newCords = {x:  -1, y: -3, z: 130};
   animate(newCords, 3000);
-  highlight_line("7", false);
+  highlight_line("5", false);
+  highlight("9", true);
 },
 offset: "130%"
 });
@@ -648,9 +658,8 @@ handler: function(direction) {
   hidden_labels = ["id3","id7", "id8", "id9", "id10"];
   var newCords = {x: -20, y: -0.001, z: 115};
   animate(newCords, 3000);
-  highlight("1", false);
-  highlight("10", false);
-  highlight_line("7", true);
+  highlight_line("5", true);
+  highlight("9", false);
 },
 offset: "130%"
 });
@@ -660,7 +669,8 @@ element: document.getElementById('twenty-three'),
 handler: function(direction) {
   var newCords = {x: -30, y: -3, z: 90};
   animate(newCords, 3000);
-  highlight_line("16", false);
+  highlight_line("13", false);
+  highlight_line("5", true);
 },
 offset: "130%"
 });
@@ -672,9 +682,9 @@ handler: function(direction) {
   var newCords = {x: -96, y: -88, z: 53};
   hidden_labels = ["id7", "id8", "id9", "id10"];
   animate(newCords, 3000);
-  highlight("14", false);
-  highlight_line("7", false);
-  highlight_line("16", true);
+  highlight("17", false);
+  highlight_line("5", false);
+  highlight_line("13", true);
 },
 offset: "130%"
 });
@@ -685,9 +695,9 @@ element: document.getElementById('twenty-five'),
 handler: function(direction) {
   var newCords = {x: -0.001, y: -0.001, z: 127};
   animate(newCords, 3000);
-  highlight("14", true);
-  highlight("11", false);
-  highlight_line("16", false);
+  highlight("17", true);
+  highlight_line("13", false);
+  highlight("14", false);
 },
 offset: "130%"
 });
@@ -698,20 +708,9 @@ element: document.getElementById('twenty-six'),
 handler: function(direction) {
   var newCords = {x: -0.1, y: -1, z: 100};
   animate(newCords, 3000);
-  highlight("13", false);
-  highlight("14", false);
-  highlight("11", true);
-},
-offset: "130%"
-});
-
-var waypoint26 = new Waypoint({
-element: document.getElementById('twenty-seven'),
-handler: function(direction) {
-  var newCords = {x: 39, y: -137, z: 39};
-  animate(newCords, 3000);
-  highlight("11", false);
-  highlight("13", true);
+  highlight("15", false);
+  highlight("17", false);
+  highlight("14", true);
 },
 offset: "130%"
 });
@@ -719,41 +718,44 @@ offset: "130%"
 var waypoint27 = new Waypoint({
 element: document.getElementById('twenty-seven'),
 handler: function(direction) {
-  var newCords = {x: 77, y: -123, z: 58};
+  var newCords = {x: 39, y: -137, z: 39};
   animate(newCords, 3000);
-  highlight("15", false);
+  highlight("14", false);
+  highlight("15", true);
+  highlight("18", false);
 },
 offset: "130%"
 });
 
-var waypoint28 = new Waypoint({
+
+var waypoint29 = new Waypoint({
 element: document.getElementById('twenty-eight'),
 handler: function(direction) {
-  var newCords = {x: 32, y: -150, z: 59};
+  var newCords = {x: 27, y: -170, z: 45};
   animate(newCords, 3000);
-  highlight("13", false);
-  highlight("15", true);
+  highlight("15", false);
+  highlight("18", true);
 },
 offset: "130%"
 });
 
-
-var waypoint28 = new Waypoint({
+var waypoint29 = new Waypoint({
 element: document.getElementById('twenty-nine'),
 handler: function(direction) {
   var newCords = {x: 27, y: -170, z: 45};
   animate(newCords, 3000);
-  highlight("15", true);
+  highlight("18", true);
 },
 offset: "130%"
 });
 
-var waypoint28 = new Waypoint({
+
+var waypoint31 = new Waypoint({
 element: document.getElementById('thirty'),
 handler: function(direction) {
   var newCords = {x: 163, y: 113, z: 41};
   animate(newCords, 3000);
-  highlight("15", false);
+  highlight("18", false);
 },
 offset: "130%"
 });

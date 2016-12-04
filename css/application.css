@@ -141,10 +141,11 @@ body {
   margin-top: 150%;
   margin-bottom: 15em; }
 
-.photo {
-  background: rgba(255, 255, 255, 0.7);
-  padding: 5px;
-  margin-right: 5%; }
+.photo-container {
+  background: white;
+  padding: 15px;
+  padding-bottom: 30px;
+  margin-top: 50%; }
 
 .caption {
   color: #000;
@@ -168,7 +169,8 @@ body {
 
 .highlighted-text {
   font-size: 11px;
-  background-color: rgba(247, 87, 87, 0.65);
+  font-weight: bold;
+  background-color: rgba(178, 156, 64, 0.7);
   letter-spacing: 1px; }
 
 .print-label {
@@ -186,9 +188,9 @@ body {
   text-align: center; }
 
 .annotation {
-  float: right;
-  margin-right: 10%;
-  margin-bottom: 10px; }
+  margin-top: 5px;
+  text-align: center;
+  color: #858585; }
 
 .credits {
   font-size: 1.2em;
