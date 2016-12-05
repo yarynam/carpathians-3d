@@ -123,7 +123,7 @@ body {
 
 .main-container {
   margin-top: 7%;
-  margin-left: 1.5%;
+  margin-left: 3.5%;
   position: absolute;
   display: block;
   z-index: 100000; }
@@ -137,7 +137,6 @@ body {
 
 .text {
   padding: 5px;
-  margin-left: 3%;
   margin-top: 150%;
   margin-bottom: 15em; }
 
