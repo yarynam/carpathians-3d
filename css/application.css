@@ -142,14 +142,10 @@ body {
   margin-bottom: 15em; }
 
 .photo-container {
-  background: white;
+  background: rgba(188, 188, 188, 0.5);
   padding: 15px;
   padding-bottom: 30px;
   margin-top: 50%; }
-
-.caption {
-  color: #000;
-  font-style: italic; }
 
 #webgl {
   /* sky-like */
@@ -170,7 +166,7 @@ body {
 .highlighted-text {
   font-size: 11px;
   font-weight: bold;
-  background-color: rgba(178, 156, 64, 0.7);
+  background-color: rgba(188, 188, 188, 0.75);
   letter-spacing: 1px; }
 
 .print-label {
@@ -189,8 +185,7 @@ body {
 
 .annotation {
   margin-top: 5px;
-  text-align: center;
-  color: #858585; }
+  text-align: center; }
 
 .credits {
   font-size: 1.2em;
@@ -204,17 +199,6 @@ body {
     margin-top: 1em;
     font-size: 1.1em;
     font-weight: 300; }
-
-p.expense-title {
-  font-size: 1.5em;
-  line-height: 1.5em;
-  margin-left: 5px; }
-p span {
-  background: rgba(242, 239, 153, 0.5);
-  padding: 1px; }
-p span.itallic {
-  background: none;
-  font-style: italic; }
 
 .read-more {
   margin-bottom: 15px; }

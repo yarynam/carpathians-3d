@@ -6,7 +6,7 @@
 
 var mesh;
 var highlighted_labels = [];
-var hidden_labels = ["id5", "id7", "id8", "id9", "id10"];
+var visible_labels = ["id0", "id1", "id2", "id3", "id4", "id6"];
 
 var Q3D = {VERSION: "1.4.2"};
 Q3D.Options = {
@@ -393,8 +393,8 @@ limitations:
     highlighted_labels.forEach(function(label) {
       highlighted_text(label);
     })
-    hidden_labels.forEach(function(h_label) {
-      hide_labels(h_label);
+    visible_labels.forEach(function(h_label) {
+      show_labels(h_label);
     })
 
   };
@@ -408,11 +408,11 @@ limitations:
     });
   }
 
-  function hide_labels(id) {
+  function show_labels(id) {
     app.labels.forEach(function (label) {
       if (label.e.id == id ) {
-        label.obj.visible = false;
-        label.e.style.display = "none";
+        label.obj.visible = true;
+        label.e.style.display = "block";
       }
     });
   }
@@ -434,7 +434,7 @@ limitations:
     var idx_dist = [];
     for (var i = 0, l = app.labels.length; i < l; i++) {
       idx_dist.push([i, camera_pos.distanceTo(app.labels[i].pt)]);
-      app.labels[i].obj.visible = true;
+      app.labels[i].obj.visible = false;
     }
 
     // sort label indexes in descending order of distances
@@ -458,12 +458,12 @@ limitations:
         y = -(v.y * heightHalf) + heightHalf;
 
         // set label position
-        e.style.display = "block";
         e.id = "id"+i;
         e.className = "label";
         e.style.left = (x - (e.offsetWidth / 2)) + "px";
         e.style.top = (y - (e.offsetHeight / 2)) + "px";
         e.style.zIndex = i + 1;
+        e.style.display = "none";
 
         // set font size
         if (autosize) {
