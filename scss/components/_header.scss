@@ -2,10 +2,18 @@
 
 
 .logo {
-    position: fixed;
-    float: left;
-    margin: 15px 0px 0px 15px;
-    z-index: 1000000;
+  position: fixed;
+  float: left;
+  margin: 15px 0px 0px 15px;
+  z-index: 1000000;
+}
+
+
+.logo-nv {
+  float: left;
+  margin: 15px 0px 0px 145px;
+  z-index: 1000000;
+  position: fixed;
 }
 
 .social-icons {

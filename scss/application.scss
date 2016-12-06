@@ -92,7 +92,7 @@ body {
 
 .credits {
   @include text(1.2em, 1.5em, 300, #ffffff);
-  margin-bottom:3em;
+  margin-bottom:0.5em;
   & span {
     font-weight: bold;
   }

@@ -52,10 +52,11 @@
 <section class= "project">
  <!-- Fixed navbar -->
 <div class="row logo-buttons" style="width:100%;">
-    <div class="col-lg-2 col-md-2 col-sm-2  col-xs-4">
-        <a href="http://texty.org.ua"><img class="img-responsive logo" src="img/logo.png"></a>
+    <div class="col-lg-5 col-md-5 col-sm-5  col-xs-8">
+        <a href="http://texty.org.ua"><img class="logo" src="img/logo.png"></a>
+        <a href="http://nv.ua/"><img class="logo-nv" src="img/logo_nv.png"></a>
     </div>
-    <div class="col-lg-1 col-lg-offset-9 col-md-1 col-md-offset-9 col-sm-2 col-sm-offset-8 col-xs-2 col-xs-offset-6">
+    <div class="col-lg-1 col-lg-offset-6 col-md-1 col-md-offset-6 col-sm-1 col-sm-offset-6 col-xs-2 col-xs-offset-2">
         <div class="social-icons">
             <a href="" class="share-btn"><i class="fa fa-twitter fa-fw fa-2x social-tw"></i></a>
             <a href="" class="share-btn"><i class="fa fa-facebook fa-fw fa-2x social-fb"></i></a>
@@ -73,7 +74,8 @@
     <h2> Анатомія Карпат </h2>
     <p id="intro" class="intro"> Це розповідь про те, як влаштовані Карпати. Про вирубки, напівлегальні туристичні бази, полонини,
       скелі та едельвейси, проблеми гірського району та його перспективи. Ми взяли хребет Свидовець і дослідили, як він влаштований та що на ньому відбувається. </p>
-    <div class="credits" >Над проектом працювали: <span>Ярина Михайлишин, Павло Солодько, Роман Кульчинський </span> </div>
+    <div class="credits">Над проектом працювали: <span>Ярина Михайлишин, Павло Солодько, Роман Кульчинський </span> </div>
+    <div class="credits">Проект проект опублікований одночасно виданнями TEXTY.org.ua та Нове Время</span> </div>
     <div class="text">
       <h2>Драгобрат</h2>
       <p id="first">У реальному житті на Свидовець ви б їхали убитою дорогою через Драгобрат. Нею лижників возять армійські УАЗи та ГАЗ-6, по-простому «буханки»
@@ -366,9 +368,9 @@
 <script>
 // Animated Logo
 $( window ).scroll(function() {
-    $(".logo").fadeOut( "slow" );
+    $(".logo, .logo-nv").fadeOut( "slow" );
     if ($(window).scrollTop() == 0) {
-        $(".logo").css('display', 'block');
+        $(".logo, .logo-nv").css('display', 'block');
     }
 });
 var option = Q3D.Options;

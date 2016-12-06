@@ -49,6 +49,12 @@ p {
   margin: 15px 0px 0px 15px;
   z-index: 1000000; }
 
+.logo-nv {
+  float: left;
+  margin: 15px 0px 0px 145px;
+  z-index: 1000000;
+  position: fixed; }
+
 .social-icons {
   position: fixed;
   padding-top: 10px;
@@ -191,7 +197,7 @@ body {
   line-height: 1.5em;
   font-weight: 300;
   color: #ffffff;
-  margin-bottom: 3em; }
+  margin-bottom: 0.5em; }
   .credits span {
     font-weight: bold; }
   .credits.date {
