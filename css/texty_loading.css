@@ -1,5 +1,5 @@
 /* Loading styles */
-.project {  
+.project {
   opacity: 0; /*  we hide main container which wraps the project in order to display the animation */
 }
 
@@ -24,6 +24,7 @@
 }
 
 .overlay {
+  position: fixed;
   background-size: 1000px 2px;
   bottom: 0;
   content: '';
@@ -31,22 +32,21 @@
   position: absolute;
   right: 0;
   top: 0;
-  z-index: -100000;
 }
 
 /* ======== Media Query ======== */
 @media only screen and (max-width: 1024px) and (orientation: landscape) {
- .loader {margin-top:40%; } 
+ .loader {margin-top:40%; }
 }
 
 @media only screen and (max-width: 1024px) and (orientation: portrait) {
- .loader {margin-top:60%; } 
+ .loader {margin-top:60%; }
 }
 
 @media only screen and (max-width: 601px) and (orientation: landscape){
- .loader {font-size: 3em; margin-top:50%;} 
+ .loader {font-size: 3em; margin-top:50%;}
 }
 
 @media only screen and (max-width: 601px) and (orientation: portrait) {
- .loader {font-size: 3em; margin-top:70%;} 
+ .loader {font-size: 3em; margin-top:70%;}
 }

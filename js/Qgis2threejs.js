@@ -359,13 +359,6 @@ limitations:
     app.camera.position.set(-0, -0.9, 155.47497887541743);
   };
 
-  // app.currentViewUrl = function () {
-  //   var c = app.camera.position, t = app.controls.target, u = app.camera.up;
-  //   var hash = "#cx=" + c.x + "&cy=" + c.y + "&cz=" + c.z;
-  //   if (t.x || t.y || t.z) hash += "&tx=" + t.x + "&ty=" + t.y + "&tz=" + t.z;
-  //   if (u.x || u.y || u.z != 1) hash += "&ux=" + u.x + "&uy=" + u.y + "&uz=" + u.z;
-  //   return window.location.href.split("#")[0] + hash;
-  // };
 
   // start rendering loop
   app.start = function () {
@@ -436,13 +429,6 @@ limitations:
       idx_dist.push([i, camera_pos.distanceTo(app.labels[i].pt)]);
       app.labels[i].obj.visible = false;
     }
-
-    // sort label indexes in descending order of distances
-    // idx_dist.sort(function (a, b) {
-    //   if (a[1] < b[1]) return 1;
-    //   if (a[1] > b[1]) return -1;
-    //   return 0;
-    // });
 
     var label, e, x, y, dist, fontSize;
     var minFontSize = Q3D.Options.label.minFontSize;
@@ -532,75 +518,7 @@ limitations:
     return {top: top, left: left};
   };
 
-  // app.help = function () {
-  //   var lines = (Q3D.Controls === undefined) ? [] : Q3D.Controls.keyList;
-  //   if (lines.indexOf("* Keys") == -1) lines.push("* Keys");
-  //   lines = lines.concat([
-  //     "I : Show Information About Page",
-  //     "L : Toggle Label Visibility",
-  //     "W : Wireframe Mode",
-  //     "Shift + R : Reset View",
-  //     "Shift + S : Save Image"
-  //   ]);
-  //   var html = '<table>';
-  //   lines.forEach(function (line) {
-  //     if (line.trim() == "") return;
 
-  //     if (line[0] == "*") {
-  //       html += '<tr><td colspan="2" class="star">' + line.substr(1).trim() + "</td></tr>";
-  //     }
-  //     else if (line.indexOf(":") == -1) {
-  //       html += '<tr><td colspan="2">' + line.trim() + "</td></tr>";
-  //     }
-  //     else {
-  //       var p = line.split(":");
-  //       html += "<tr><td>" + p[0].trim() + "</td><td>" + p[1].trim() + "</td></tr>";
-  //     }
-  //   });
-  //   html += "</table>";
-  //   return html;
-  // };
-
-  // app.popup = {
-
-  //   modal: false,
-
-  //   // show box
-  //   // obj: html or element
-  //   show: function (obj, title, modal) {
-
-  //     if (modal) app.pause();
-  //     else if (this.modal) app.start();   // enable controls
-
-  //     this.modal = Boolean(modal);
-
-  //     var content = Q3D.$("popupcontent");
-  //     if (obj === undefined) {
-  //       // show page info
-  //       content.style.display = "none";
-  //       Q3D.$("pageinfo").style.display = "block";
-  //     }
-  //     else {
-  //       Q3D.$("pageinfo").style.display = "none";
-  //       if (obj instanceof HTMLElement) {
-  //         content.innerHTML = "";
-  //         content.appendChild(obj);
-  //       }
-  //       else {
-  //         content.innerHTML = obj;
-  //       }
-  //       content.style.display = "block";
-  //     }
-  //     Q3D.$("popupbar").innerHTML = title || "";
-  //     Q3D.$("popup").style.display = "block";
-  //   },
-
-  //   hide: function () {
-  //     Q3D.$("popup").style.display = "none";
-  //     if (this.modal) app.start();    // enable controls
-  //   }
-
-  // };
 
   app.showInfo = function () {
     // Q3D.$("urlbox").value = app.currentViewUrl();
@@ -608,137 +526,7 @@ limitations:
     // app.popup.show();
   };
 
-  // app.showQueryResult = function (point, layerId, featureId) {
-  //   var layer, r = [];
-  //   if (layerId !== undefined) {
-  //     // layer name
-  //     layer = app.project.layers[layerId];
-  //     r.push('<table class="layer">');
-  //     r.push("<caption>Layer name</caption>");
-  //     r.push("<tr><td>" + layer.name + "</td></tr>");
-  //     r.push("</table>");
-  //   }
 
-  //   // clicked coordinates
-  //   var pt = app.project.toMapCoordinates(point.x, point.y, point.z);
-  //   r.push('<table class="coords">');
-  //   r.push("<caption>Clicked coordinates</caption>");
-  //   r.push("<tr><td>");
-
-  //   if (typeof proj4 === "undefined") r.push([pt.x.toFixed(2), pt.y.toFixed(2), pt.z.toFixed(2)].join(", "));
-  //   else {
-  //     var lonLat = proj4(app.project.proj).inverse([pt.x, pt.y]);
-  //     r.push(Q3D.Utils.convertToDMS(lonLat[1], lonLat[0]) + ", Elev. " + pt.z.toFixed(2));
-  //   }
-
-  //   r.push("</td></tr></table>");
-
-  //   if (layerId !== undefined && featureId !== undefined && layer.a !== undefined) {
-  //     // attributes
-  //     r.push('<table class="attrs">');
-  //     r.push("<caption>Attributes</caption>");
-  //     var f = layer.f[featureId];
-  //     for (var i = 0, l = layer.a.length; i < l; i++) {
-  //       r.push("<tr><td>" + layer.a[i] + "</td><td>" + f.a[i] + "</td></tr>");
-  //     }
-  //     r.push("</table>");
-  //   }
-  //   app.popup.show(r.join(""));
-  // };
-
-  // app.showPrintDialog = function () {
-
-  //   function e (tagName, parent, innerHTML) {
-  //     var elem = document.createElement(tagName);
-  //     if (parent) parent.appendChild(elem);
-  //     if (innerHTML) elem.innerHTML = innerHTML;
-  //     return elem;
-  //   }
-
-  //   var f = e("form");
-  //   f.className = "print";
-
-  //   var d1 = e("div", f, "Image Size");
-  //   d1.style.textDecoration = "underline";
-
-  //   var d2 = e("div", f),
-  //       l1 = e("label", d2, "Width:"),
-  //       width = e("input", d2);
-  //   d2.style.cssFloat = "left";
-  //   l1.htmlFor = width.id = width.name = "printwidth";
-  //   width.type = "text";
-  //   width.value = app.width;
-  //   e("span", d2, "px,")
-
-  //   var d3 = e("div", f),
-  //       l2 = e("label", d3, "Height:"),
-  //       height = e("input", d3);
-  //   l2.htmlFor = height.id = height.name = "printheight";
-  //   height.type = "text";
-  //   height.value = app.height;
-  //   e("span", d3, "px");
-
-  //   var d4 = e("div", f),
-  //       ka = e("input", d4);
-  //   ka.type = "checkbox";
-  //   ka.checked = true;
-  //   e("span", d4, "Keep Aspect Ratio");
-
-  //   var d5 = e("div", f, "Option");
-  //   d5.style.textDecoration = "underline";
-
-  //   var d6 = e("div", f),
-  //       bg = e("input", d6);
-  //   bg.type = "checkbox";
-  //   bg.checked = true;
-  //   e("span", d6, "Fill Background");
-
-  //   var d7 = e("div", f),
-  //       ok = e("span", d7, "OK"),
-  //       cancel = e("span", d7, "Cancel");
-  //   d7.className = "buttonbox";
-
-  //   e("input", f).type = "submit";
-
-  //   // event handlers
-  //   // width and height boxes
-  //   var aspect = app.width / app.height;
-
-  //   width.oninput = function () {
-  //     if (ka.checked) height.value = Math.round(width.value / aspect);
-  //   };
-
-  //   height.oninput = function () {
-  //     if (ka.checked) width.value = Math.round(height.value * aspect);
-  //   };
-
-  //   ok.onclick = function () {
-  //     app.popup.show("Rendering...");
-  //     window.setTimeout(function () {
-  //       app.saveCanvasImage(width.value, height.value, bg.checked);
-  //     }, 10);
-  //   };
-
-  //   cancel.onclick = app.closePopup;
-
-  //   // enter key pressed
-  //   f.onsubmit = function () {
-  //     ok.onclick();
-  //     return false;
-  //   }
-
-  //   app.popup.show(f, "Save Image", true);   // modal
-  // };
-
-  // app.closePopup = function () {
-  //   app.popup.hide();
-  //   app.queryMarker.visible = false;
-  //   app.highlightFeature(null, null);
-  //   if (app._canvasImageUrl) {
-  //     URL.revokeObjectURL(app._canvasImageUrl);
-  //     app._canvasImageUrl = null;
-  //   }
-  // };
 
   app.clouds = function() {
     cloudGeometry = new THREE.Geometry();
@@ -759,17 +547,7 @@ limitations:
     depthTest: false,
     transparent: true
   });
-  // var plane = new THREE.Mesh( new THREE.PlaneBufferGeometry( 164, 164 ) );
-  // for ( var i = 0; i < 10; i++ ) {
-  //   plane.position.x = Math.random() * 2000 - 1500;
-  //   plane.position.y = Math.random() * Math.random() * 2000 - 500;
-  //   plane.rotation.x = -100;
-  //   plane.rotation.y = 100;
-  //   plane.position.z = 450;
-  //   plane.scale.x = plane.scale.y = Math.random() * Math.random() * 1.5 + 0.5;
-  //   plane.updateMatrix()
-  //   cloudGeometry.merge(plane.geometry, plane.matrix);
-  // }
+
   cloudMesh = new THREE.Mesh( cloudGeometry, cloudMaterial );
   cloudMesh.position.z = 100;
   app.scene.add( cloudMesh );
@@ -817,54 +595,7 @@ limitations:
     app.highlightObject = highlightObject;
   };
 
-  // // Called from *Controls.js when canvas is clicked
-  // app.canvasClicked = function (e) {
-  //   var canvasOffset = app._offset(app.renderer.domElement);
-  //   var objs = app.intersectObjects(e.clientX - canvasOffset.left, e.clientY - canvasOffset.top);
-
-  //   for (var i = 0, l = objs.length; i < l; i++) {
-  //     var obj = objs[i];
-  //     if (!obj.object.visible) continue;
-
-  //     // query marker
-  //     app.queryMarker.position.set(obj.point.x, obj.point.y, obj.point.z);
-  //     app.queryMarker.visible = true;
-  //     app.queryMarker.updateMatrixWorld();
-
-  //     // get layerId and featureId of clicked object
-  //     var object = obj.object, layerId, featureId;
-  //     while (object) {
-  //       layerId = object.userData.layerId,
-  //       featureId = object.userData.featureId;
-  //       if (layerId !== undefined) break;
-  //       object = object.parent;
-  //     }
-
-  //     // highlight clicked object
-  //     app.highlightFeature((layerId === undefined) ? null : layerId,
-  //                           (featureId === undefined) ? null : featureId);
-
-  //     app.showQueryResult(obj.point, layerId, featureId);
-
-  //     if (Q3D.Options.debugMode && object instanceof THREE.Mesh) {
-  //       var face = obj.face,
-  //           geom = object.geometry;
-  //       if (face) {
-  //         if (geom instanceof THREE.Geometry) {
-  //           var v = object.geometry.vertices;
-  //           console.log(v[face.a], v[face.b], v[face.c]);
-  //         }
-  //         else {
-  //           console.log("Qgis2threejs: [DEBUG] THREE.BufferGeometry");
-  //         }
-  //       }
-  //     }
-
-  //     return;
-  //   }
-  //   app.closePopup();
-  // };
-
+  
   app.saveCanvasImage = function (width, height, fill_background) {
     if (fill_background === undefined) fill_background = true;
 

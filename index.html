@@ -103,7 +103,7 @@
       <p class="annotation"><i>Кулуари на Близниці</i></p>
     </div>
     <div class="text">
-      <p id="sixth">В ясну погоду з Драгобрату видно живописні скелясті урвища над улоговинами - так звані Жандарми. На цих схилах небезпечно, особливо в негоду. Особливо взимку.
+      <p id="six">В ясну погоду з Драгобрату видно живописні скелясті урвища над улоговинами - так звані Жандарми. На цих схилах небезпечно, особливо в негоду. Особливо взимку.
         В улоговинах сходять лавини, а снігові наддуви над обривами оманливо міцні.<p>
     </div>
     <div class="text">
@@ -230,7 +230,7 @@
     </div>
     <div class="text">
        <p id="twenty">Це законні вирубки — тут розташовані так звані експлуатаційні ліси. Тобто їх рубають, саджають і знову рубають.
-         На картах Генштабу 1970-х і 1990-х років видання на цих місцях теж позначені вирубки. Більшість цих вирубок було здійснено в період 2013—2015 років.
+         На картах Генштабу 1970-х і 1990-х років видання на цих місцях теж позначені вирубки. Однак більшість цих вирубок була здійснена відновсно нещодано, а саме в період з 2013 по 2015 рік. Приблизна площа вирубок у долинах на південь від хребта - 190 га.
        </p>
     </div>
     <div class="text">
@@ -483,9 +483,9 @@ var waypoint4 = new Waypoint({
   offset: "130%"
 });
 var waypoint6 = new Waypoint({
-  element: document.getElementById('sixth'),
+  element: document.getElementById('six'),
   handler: function(direction) {
-    var newCords = {x: 118, y: -5.6, z: 52}
+    var newCords = {x: 118, y: -25, z: 52}
     animate(newCords, 3000);
     update_labels(["id9", "id10"], ["id7","id8"]);
     highlighted_labels = ["id7", "id8"];
@@ -507,7 +507,7 @@ var waypoint7 = new Waypoint({
 var waypoint8 = new Waypoint({
   element: document.getElementById('eight'),
   handler: function(direction) {
-    var newCords = {x: -5, y: -10, z: 150}
+    var newCords = {x: 85, y: -114, z: 60}
     animate(newCords, 3000);
     update_labels(["id11"],["id21"]);
     highlighted_labels = ["id21"];
@@ -521,7 +521,7 @@ var waypoint9 = new Waypoint({
   handler: function(direction) {
     update_labels(["id21"],["id11"]);
     highlighted_labels = ["id11"];
-    var newCords = {x: 20, y: -70, z: 100}
+    var newCords = {x: 97, y: -40, z: 64}
     animate(newCords, 3000);
     highlight("8", false);
     highlight("16", true);
@@ -545,7 +545,7 @@ var waypoint10 = new Waypoint({
 var waypoint11 = new Waypoint({
   element: document.getElementById('eleven'),
   handler: function(direction) {
-    var newCords = {x: 110, y: 20, z: 50}
+    var newCords = {x: 110, y: 30, z: 50}
     animate(newCords, 3000);
     update_labels(["id20"],["id12"]);
     highlighted_labels = ["id12"];
@@ -558,7 +558,7 @@ var waypoint11 = new Waypoint({
 var waypoint12 = new Waypoint({
   element: document.getElementById('twelve'),
   handler: function(direction) {
-    var newCords = {x: 79, y: 17, z: 55}
+    var newCords = {x: 79, y: 10, z: 55}
     animate(newCords, 3000);
     update_labels(["id12","id19"],["id20"]);
     highlighted_labels = ["id20"];
@@ -595,7 +595,7 @@ var waypoint14 = new Waypoint({
 var waypoint15 = new Waypoint({
   element: document.getElementById('fifteen'),
   handler: function(direction) {
-    var newCords = {x: 65, y: 70, z: 50};
+    var newCords = {x: 65, y: 60, z: 50};
     animate(newCords, 3000);
     update_labels([],["id22"]);
     highlighted_labels = ["id6","id22"];
@@ -698,7 +698,7 @@ var waypoint23 = new Waypoint({
 var waypoint24 = new Waypoint({
   element: document.getElementById('twenty-four'),
   handler: function(direction) {
-    var newCords = {x: -96, y: -88, z: 53};
+    var newCords = {x: -112, y: -68, z: 51};
     animate(newCords, 3000);
     update_labels(["id16"],[]);
     highlight("17", false);
@@ -736,7 +736,7 @@ var waypoint26 = new Waypoint({
 var waypoint27 = new Waypoint({
   element: document.getElementById('twenty-seven'),
   handler: function(direction) {
-    var newCords = { x:  -56, y: -52, z: 118};
+    var newCords = { x:  70, y: -107, z: 59};
     update_labels(["id14","id17"],["id13"]);
     highlighted_labels = ["id13"];
     animate(newCords, 3000);
