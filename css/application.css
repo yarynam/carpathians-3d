@@ -58,7 +58,7 @@ p {
 .social-icons {
   position: fixed;
   padding-top: 10px;
-  z-index: 100001; }
+  z-index: 1000001; }
 
 .fa-twitter,
 .fa-facebook {
