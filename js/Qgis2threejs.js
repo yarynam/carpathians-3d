@@ -306,8 +306,8 @@ limitations:
       if (!e.shiftKey) {
         if (keyPressed == 27) app.closePopup(); // ESC
         // else if (keyPressed == 73) app.showInfo();  // I
-        else if (keyPressed == 76) app.setLabelVisibility(!app.labelVisibility);  // L
-        else if (keyPressed == 87) app.setWireframeMode(!app._wireframeMode);    // W
+        // else if (keyPressed == 76) app.setLabelVisibility(!app.labelVisibility);  // L
+        // else if (keyPressed == 87) app.setWireframeMode(!app._wireframeMode);    // W
       }
       else {
         if (keyPressed == 82) app.controls.reset();   // Shift + R
@@ -595,7 +595,7 @@ limitations:
     app.highlightObject = highlightObject;
   };
 
-  
+
   app.saveCanvasImage = function (width, height, fill_background) {
     if (fill_background === undefined) fill_background = true;
 
