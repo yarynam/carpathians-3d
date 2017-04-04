@@ -1,9 +1,8 @@
 //ProgressBar
-before = (new Date()).getTime();
 function Ticker( elem ) {
 	elem.lettering();
 	this.done = false;
-	this.cycleCount = 5;
+	this.cycleCount = 1;
 	this.cycleCurrent = 0;
 	this.chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()-_=+{}|[]\\;\':"<>?,./`~'.split('');
 	this.charsCount = this.chars.length;
@@ -63,11 +62,11 @@ Ticker.prototype.loop = function() {
 			requestAnimationFrame( function() {
 				self.loop();
 			});
-	    }, 70 );
+	    }, 10 );
 	} else {
 		setTimeout( function() {
 			self.reset();
-		},3000 );
+		},10 );
 	}
 };
 
@@ -81,11 +80,7 @@ $loaderWords.each( function() {
 
 
 window.onload = function onLoad() {
- var after = (new Date()).getTime();
- var sec = (after-before); // getting the loading time 
- setTimeout(function(){
-    $(".loader, .overlay").remove();
-    $('.project').css('opacity', 1);
-  }, sec);
+	 $(".loader, .overlay").remove();
+	 $('.project').css('opacity', 1);
 };
 
