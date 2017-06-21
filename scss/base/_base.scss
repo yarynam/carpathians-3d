@@ -25,19 +25,79 @@ a {
 
 h1 {
   @include text(4em, 1em, 900, #ffffff);
+  @media #{$brk-xxlarge} {
+    @include text(7em, 1.2em, 800);
+  }
+  @media #{$brk-xlarge} {
+    @include text(6em, 1.2em, 800);
+  }
+  @media #{$brk-large} {
+    @include text(4em, 1.2em, 800);
+  }
+  @media #{$brk-narrow} {
+    @include text(3.5em, 1.4em, 800);
+  }
+  @media #{$brk-spnarrow} {
+    @include text(2.4em, 1.4em, 800);
+  }
 }
 
 h2 {
   @include text(2em, 1.5em, bold, #ffffff);
+  @media #{$brk-xxlarge} {
+    @include text(3em, 1.7em, 800);
+  }
+  @media #{$brk-xlarge} {
+    @include text(2.5em, 1.7em, 800);
+  }
+  @media #{$brk-large} {
+     @include text(2.1em, 1.8em, bold);
+  }
+  @media #{$brk-medium} {
+     @include text(1.8em, 1.8em, bold);
+  }
+  @media #{$brk-spnarrow} {
+     @include text(1.7em, 1.8em, bold);
+  }
 }
 
 h3 {
   @include text(1.8em, 2.2em, normal);
+  @media #{$brk-xxlarge} {
+    @include text(2.1em, 2.3em, 800);
+  }
+  @media #{$brk-xlarge} {
+    @include text(2em, 2.3em, 800);
+  }
+  @media #{$brk-large} {
+     @include text(1.8em, 2em, bold);
+  }
+  @media #{$brk-medium} {
+     @include text(1.7em, 1.8em, bold);
+  }
+  @media #{$brk-spnarrow} {
+     @include text(1.6em, 1.7em, bold);
+  }
 }
 
 p {
     @include text(1.5em, 1.7em, 300, #fff);
     margin-top:5px;
     margin-bottom: 5px;
+    @media #{$brk-xxlarge} {
+        @include text(2.3em, 2em, 300);
+    }
+    @media #{$brk-xlarge} {
+        @include text(2.1em, 2em, 300);
+    }
+    @media #{$brk-large} {
+        @include text(1.5em, 1.8em, 300);
+    }
+    @media #{$brk-medium} {
+         @include text(1.5em, 1.6em, 300);
+    }
+    @media #{$brk-spnarrow} {
+         @include text(1.4em, 1.6em, 300);
+    }
 
 }

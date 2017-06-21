@@ -79,6 +79,21 @@ body {
 
 .intro {
   @include text(1.5em, 1.5em, 300, #ffffff);
+  @media #{$brk-xxlarge} {
+        @include text(2.8em, 1.8em, 300);
+  }
+  @media #{$brk-xlarge} {
+      @include text(2.5em, 1.7em, 300);
+  }
+  @media #{$brk-large} {
+      @include text(1.5em, 1.8em, 300);
+  }
+  @media #{$brk-medium} {
+       @include text(1.5em, 1.6em, 300);
+  }
+  @media #{$brk-spnarrow} {
+       @include text(1.4em, 1.6em, 300);
+  }
 }
 
 .center {
@@ -100,6 +115,15 @@ body {
 
 .credits {
   @include text(1.2em, 1.5em, 300, #ffffff);
+  @media #{$brk-xxlarge} {
+    @include text(2em, 1.6em);
+  }
+  @media #{$brk-xlarge} {
+    @include text(1.6em, 1.6em);
+  }
+  @media #{$brk-large} {
+    @include text(1.3em, 1.5em);
+  }
   margin-bottom:3em;
   & span {
     font-weight: bold;

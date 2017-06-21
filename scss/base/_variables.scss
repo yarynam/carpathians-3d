@@ -15,6 +15,9 @@ $footer-size-media: 0.5em;
 
 
 // Media query
-
+$brk-xxlarge: '(max-width: 2560px)';
+$brk-xlarge: '(max-width: 1920px)';
+$brk-large: '(max-width: 1366px)';
+$brk-medium: '(max-width: 1024px)';
 $brk-narrow: '(max-width: 768px)';
 $brk-spnarrow: '(max-width: 480px)';
